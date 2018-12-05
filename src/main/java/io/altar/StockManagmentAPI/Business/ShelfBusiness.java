@@ -5,7 +5,7 @@ import java.util.Collection;
 import io.altar.StockManagmentAPI.Models.Shelf;
 import io.altar.StockManagmentAPI.Repositories.ShelfRepository;
 
-public class ShelfService {
+public class ShelfBusiness {
 
 	// Initializing;
 	private static final ShelfRepository SHELF_REPOSITORY = ShelfRepository.getInstance();
@@ -23,7 +23,7 @@ public class ShelfService {
 
 	// Add Product to Shelf
 	public static void addProductToShelf(Shelf shelf, long idProduct) {
-		shelf.setProduct(ProductService.getProductById(idProduct));
+		shelf.setProduct(ProductBusiness.getProductById(idProduct));
 		SHELF_REPOSITORY.updateByID(shelf);
 	}
 

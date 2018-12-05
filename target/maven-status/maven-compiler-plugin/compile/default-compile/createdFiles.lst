@@ -1,0 +1,11 @@
+io/altar/App.class
+io/altar/StockManagmentAPI/Repositories/EntityRepository.class
+io/altar/StockManagmentAPI/Repositories/ShelfRepository.class
+io/altar/StockManagmentAPI/Business/ProductBusiness.class
+io/altar/StockManagmentAPI/Models/Entity.class
+io/altar/StockManagmentAPI/Repositories/ProductRepository.class
+io/altar/StockManagmentAPI/Business/ShelfBusiness.class
+io/altar/StockManagmentAPI/Models/Product.class
+io/altar/StockManagmentAPI/Services/ShelfsService.class
+io/altar/StockManagmentAPI/Models/Shelf.class
+io/altar/StockManagmentAPI/Services/ProductsService.class

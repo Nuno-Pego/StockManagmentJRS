@@ -6,15 +6,15 @@ import java.util.Collection;
 import io.altar.StockManagmentAPI.Models.Product;
 import io.altar.StockManagmentAPI.Repositories.ProductRepository;
 
-public class ProductService {
+public class ProductBusiness{
 	
 	// Initializing;
 	private static final ProductRepository PRODUCT_REPOSITORY = ProductRepository.getInstance();
 	
 	// Create a product
-	public static void createProduct (int discount, int iva, double pvp){
+	public static Product createProduct (int discount, int iva, double pvp){
 		Product newProduct = new Product(discount, iva, pvp);
-		PRODUCT_REPOSITORY.save(newProduct);
+		return PRODUCT_REPOSITORY.save(newProduct);
 	}
 	
 	public static void createProduct (ArrayList<Long> shelfsIDs, int discount, int iva, double pvp){
@@ -54,8 +54,8 @@ public class ProductService {
 	}
 	
 	// Edit Product
-	public static void editProduct (Product editProduct){
-		PRODUCT_REPOSITORY.save(editProduct);
+	public static Product editProduct (Product editProduct){
+		return PRODUCT_REPOSITORY.save(editProduct);
 	}
 	
 	// Remove Product

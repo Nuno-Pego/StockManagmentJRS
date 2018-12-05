@@ -36,12 +36,13 @@ public abstract class EntityRepository <T extends Entity> {
 		{return true;}else{
 			return false;}
 	}
-	
+		
 	// Save:
-	public void save(T entity){
+	public T save(T entity){
 		entity.setId(actualID);
 		baseDeDados.put(entity.getId(), entity);
 		nextID();
+		return entity;
 	}
 	
 	// Find by id:

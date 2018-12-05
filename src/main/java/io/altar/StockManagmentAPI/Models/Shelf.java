@@ -1,6 +1,6 @@
 package io.altar.StockManagmentAPI.Models;
 
-import io.altar.StockManagmentAPI.Business.ProductService;
+import io.altar.StockManagmentAPI.Business.ProductBusiness;
 
 //Class Model Shelf
 public class Shelf extends Entity {
@@ -17,7 +17,7 @@ public class Shelf extends Entity {
 	}
 
 	public Shelf(long id, int capacity, double price) {
-		this.product = ProductService.getProductById(id);
+		this.product = ProductBusiness.getProductById(id);
 		this.capacity = capacity;
 		this.price = price;
 	}
