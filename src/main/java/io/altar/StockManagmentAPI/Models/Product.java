@@ -13,6 +13,8 @@ public class Product extends Entity {
 	private double pvp;
 
 	// Constructor:
+	public Product() {}
+	
 	public Product(int discountPrice, int iva, double pvp) {
 		this.listShelfs = new ArrayList<Long>();
 		this.discountPrice = discountPrice;

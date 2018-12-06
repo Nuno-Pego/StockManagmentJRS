@@ -11,6 +11,8 @@ public class Shelf extends Entity {
 	private double price;
 
 	// Constructor:
+	public Shelf() {}
+	
 	public Shelf(int capacity, double price) {
 		this.capacity = capacity;
 		this.price = price;

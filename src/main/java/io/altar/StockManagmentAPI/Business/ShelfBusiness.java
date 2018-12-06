@@ -10,33 +10,6 @@ public class ShelfBusiness {
 	// Initializing;
 	private static final ShelfRepository SHELF_REPOSITORY = ShelfRepository.getInstance();
 
-	// Create Shelf
-	public static void createShelf(int capacity, float price) {
-		Shelf newShelf = new Shelf(capacity, price);
-		SHELF_REPOSITORY.save(newShelf);
-	}
-
-	public static void createShelf(Long productIDs, int capacity, float price) {
-		Shelf newShelf = new Shelf(productIDs, capacity, price);
-		SHELF_REPOSITORY.save(newShelf);
-	}
-
-	// Add Product to Shelf
-	public static void addProductToShelf(Shelf shelf, long idProduct) {
-		shelf.setProduct(ProductBusiness.getProductById(idProduct));
-		SHELF_REPOSITORY.updateByID(shelf);
-	}
-
-	// Get size of Data
-	public static int getSizeOfData() {
-		return SHELF_REPOSITORY.lenghtData();
-	}
-
-	// Get actual product ID
-	public static long getActualID() {
-		return SHELF_REPOSITORY.getActualID();
-	}
-
 	// Get next product ID
 	public static long getNextID() {
 		return SHELF_REPOSITORY.nextID();
@@ -51,16 +24,16 @@ public class ShelfBusiness {
 	// Get all Shelfs
 	public static Collection<Shelf> getAllShelfs() {
 		return SHELF_REPOSITORY.getAll();
+	}	
+
+	// Save Shelf
+	public static Shelf saveShelf(Shelf saveShelf) {
+		return SHELF_REPOSITORY.save(saveShelf);
 	}
 
-	// Get all Shelfs ID's
-	public static Collection<Long> getAllShelfsIDs() {
-		return SHELF_REPOSITORY.getAllIDs();
-	}
-
-	// Edit Shelf
-	public static void editShelf(Shelf editShelf) {
-		SHELF_REPOSITORY.save(editShelf);
+	// Update:
+	public static void replaceShelf(Shelf shelf) {
+		SHELF_REPOSITORY.update(shelf);
 	}
 
 	// Remove Shelf
@@ -68,14 +41,14 @@ public class ShelfBusiness {
 		SHELF_REPOSITORY.removeByID(id);
 	}
 
+	// Remove All
+	public static void removeAllShelfs() {
+		SHELF_REPOSITORY.removeAll();
+	}
+
 	// Check if Shelf Repository is empty
 	public static boolean isEmpty() {
 		return SHELF_REPOSITORY.isEmpty();
-	}
-
-	// Get all Shelfs ID's without products
-	public static Collection<Long> getAllShelfsIDsWithoutProduct() {
-		return SHELF_REPOSITORY.getIDsWithoutProduct();
-	}
+	}	
 
 }
