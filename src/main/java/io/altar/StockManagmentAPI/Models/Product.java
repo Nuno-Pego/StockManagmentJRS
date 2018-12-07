@@ -62,10 +62,4 @@ public class Product extends Entity {
 		this.pvp = pvp;
 	}
 	//-------------------------------------------------------
-	
-	// Add new ID Shelf to ListShelfs:
-	public void addToListShelfs(Long e){
-		this.listShelfs.add(e);
-	}	
-
 }

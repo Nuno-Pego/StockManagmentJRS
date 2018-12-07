@@ -33,7 +33,7 @@ public class ProductsService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Product updateProduct(Product product) {		
-		ProductBusiness.replaceProduct(product);
+		ProductBusiness.updateProduct(product);
 		return product;
 	}
 	

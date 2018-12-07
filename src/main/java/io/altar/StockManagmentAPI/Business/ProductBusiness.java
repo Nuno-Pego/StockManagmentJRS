@@ -31,8 +31,8 @@ public class ProductBusiness {
 		return PRODUCT_REPOSITORY.save(saveProduct);
 	}
 
-	// Replace Product
-	public static void replaceProduct(Product product) {
+	// Update Product
+	public static void updateProduct(Product product) {
 		PRODUCT_REPOSITORY.update(product);
 	}
 
