@@ -1,34 +1,34 @@
-package io.altar.StockManagmentAPI.Models;
+package io.altar.StockManagmentAPI.Business;
 
+import io.altar.StockManagmentAPI.Models.Entity;
+import io.altar.StockManagmentAPI.Models.Product;
 
-//Class Model Shelf
-public class Shelf extends Entity {
+public class ShelfDto extends Entity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	// Fields:
 	private Product product;
 	private int capacity;	
 	private double price;
 
-	// Constructor:
-	public Shelf() {}
+	public ShelfDto() {
+	}
+
+	public ShelfDto(long id, int capacity, double price) {
+		this.setId(id);
+		this.capacity = capacity;
+		this.price = price;
+	}
 	
-	public Shelf(int capacity, double price) {
+	public ShelfDto(long id, Product product,int capacity, double price) {		
 		this.capacity = capacity;
-		this.price = price;
-	}
-
-	public Shelf(Product product, int capacity, double price) {
 		this.product = product;
-		this.capacity = capacity;
 		this.price = price;
 	}
 
-	// Getters and Setters
 	public int getCapacity() {
 		return capacity;
 	}
@@ -37,7 +37,6 @@ public class Shelf extends Entity {
 		this.capacity = capacity;
 	}
 
-	// -------------------------------------------------------
 	public Product getProduct() {
 		return product;
 	}
@@ -46,7 +45,6 @@ public class Shelf extends Entity {
 		this.product = product;
 	}
 
-	// -------------------------------------------------------
 	public double getPrice() {
 		return price;
 	}

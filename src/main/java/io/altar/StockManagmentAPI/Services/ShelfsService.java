@@ -1,6 +1,5 @@
 package io.altar.StockManagmentAPI.Services;
 
-
 import java.util.Collection;
 
 import javax.ws.rs.Consumes;
@@ -14,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import io.altar.StockManagmentAPI.Business.ShelfBusiness;
+import io.altar.StockManagmentAPI.Business.ShelfDto;
 import io.altar.StockManagmentAPI.Models.Shelf;
 
 
@@ -24,7 +24,7 @@ public class ShelfsService {
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Shelf addShelf(Shelf shelf) {		
+	public ShelfDto addShelf(Shelf shelf) {		
 		return ShelfBusiness.saveShelf(shelf);	
 	}
 	
@@ -40,14 +40,14 @@ public class ShelfsService {
 	@GET
 	@Path("/getAll")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<Shelf> getAllShelfs(){
+	public Collection<ShelfDto> getAllShelfs(){
 		return ShelfBusiness.getAllShelfs();
 	}
 	
 	@GET
 	@Path("/getById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Shelf getShelfById(@PathParam("id") long id){
+	public ShelfDto getShelfById(@PathParam("id") long id){
 		return ShelfBusiness.getShelfById(id);
 	}
 	

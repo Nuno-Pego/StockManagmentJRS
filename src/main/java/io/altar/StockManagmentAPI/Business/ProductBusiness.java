@@ -1,6 +1,8 @@
 package io.altar.StockManagmentAPI.Business;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 import io.altar.StockManagmentAPI.Models.Product;
 import io.altar.StockManagmentAPI.Repositories.ProductRepository;
@@ -16,24 +18,41 @@ public class ProductBusiness {
 	}
 
 	// Get Product by ID
-	public static Product getProductById(long id) {
+	public static ProductDto getProductById(long id) {
 		Product searchProduct = PRODUCT_REPOSITORY.findByID(id);
-		return searchProduct;
+		ProductDto createProduct = new ProductDto(searchProduct.getId(), searchProduct.getDiscountPrice(),
+				searchProduct.getIva(), searchProduct.getPvp());
+		return createProduct;
 	}
 
 	// Get All Products
-	public static Collection<Product> getAllProducts() {
-		return PRODUCT_REPOSITORY.getAll();
+	public static Collection<ProductDto> getAllProducts() {
+		Iterator<Product> products = PRODUCT_REPOSITORY.getAll().iterator();
+		Collection<ProductDto> productsDto = new ArrayList<ProductDto>();
+
+		while (products.hasNext()) {
+			Product product = products.next();
+			ProductDto productDto = new ProductDto(product.getId(), product.getDiscountPrice(),
+					product.getIva(), product.getPvp());
+			productsDto.add(productDto);
+		}
+		return productsDto;
 	}
 
 	// Save Product
-	public static Product saveProduct(Product saveProduct) {
-		return PRODUCT_REPOSITORY.save(saveProduct);
+	public static ProductDto saveProduct(Product saveProduct) {
+		PRODUCT_REPOSITORY.save(saveProduct);
+		ProductDto createProduct = new ProductDto(saveProduct.getId(), saveProduct.getDiscountPrice(),
+				saveProduct.getIva(), saveProduct.getPvp());
+		return createProduct;
 	}
 
 	// Update Product
-	public static void updateProduct(Product product) {
+	public static ProductDto updateProduct(Product product) {
 		PRODUCT_REPOSITORY.update(product);
+		ProductDto createProduct = new ProductDto(product.getId(), product.getDiscountPrice(), product.getIva(),
+				product.getPvp());
+		return createProduct;
 	}
 
 	// Remove Product
