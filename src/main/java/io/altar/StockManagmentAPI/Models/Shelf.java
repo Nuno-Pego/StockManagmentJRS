@@ -1,22 +1,29 @@
 package io.altar.StockManagmentAPI.Models;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
-//Class Model Shelf
-public class Shelf extends Entity {
+@Entity
+// Class Model Shelf
+public class Shelf extends BaseEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	// Fields:
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Product product;
-	private int capacity;	
+
+	private int capacity;
 	private double price;
 
 	// Constructor:
-	public Shelf() {}
-	
+	public Shelf() {
+	}
+
 	public Shelf(int capacity, double price) {
 		this.capacity = capacity;
 		this.price = price;

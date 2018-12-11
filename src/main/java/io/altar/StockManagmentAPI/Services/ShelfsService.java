@@ -16,7 +16,6 @@ import io.altar.StockManagmentAPI.Business.ShelfBusiness;
 import io.altar.StockManagmentAPI.Business.ShelfDto;
 import io.altar.StockManagmentAPI.Models.Shelf;
 
-
 @Path("/shelf")
 public class ShelfsService {
 
@@ -24,47 +23,47 @@ public class ShelfsService {
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public ShelfDto addShelf(Shelf shelf) {		
-		return ShelfBusiness.saveShelf(shelf);	
+	public ShelfDto addShelf(Shelf shelf) {
+		return ShelfBusiness.saveShelf(shelf);
 	}
-	
+
 	@POST
 	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Shelf updateShelf(Shelf shelf) {		
-		ShelfBusiness.replaceShelf(shelf); 
+	public Shelf updateShelf(Shelf shelf) {
+		ShelfBusiness.replaceShelf(shelf);
 		return shelf;
 	}
-	
-	@GET
-	@Path("/getAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<ShelfDto> getAllShelfs(){
-		return ShelfBusiness.getAllShelfs();
-	}
-	
-	@GET
-	@Path("/getById/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public ShelfDto getShelfById(@PathParam("id") long id){
-		return ShelfBusiness.getShelfById(id);
-	}
-	
-	@DELETE
-	@Path("/deleteAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response removeAllShelfs(){
-		ShelfBusiness.removeAllShelfs();
-		return Response.ok().build();
-	}
-	
+
 	@DELETE
 	@Path("/deleteById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response removeShelfById(@PathParam("id") long id){
+	public Response removeShelfById(@PathParam("id") long id) {
 		ShelfBusiness.removeShelf(id);
 		return Response.ok().build();
-	}	
-	
+	}
+
+	// @GET
+	// @Path("/getAll")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public Collection<ShelfDto> getAllShelfs(){
+	// return ShelfBusiness.getAllShelfs();
+	// }
+	//
+	// @GET
+	// @Path("/getById/{id}")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public ShelfDto getShelfById(@PathParam("id") long id){
+	// return ShelfBusiness.getShelfById(id);
+	// }
+	//
+	// @DELETE
+	// @Path("/deleteAll")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public Response removeAllShelfs(){
+	// ShelfBusiness.removeAllShelfs();
+	// return Response.ok().build();
+	// }
+
 }

@@ -6,31 +6,39 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-//Class Model Product
-public class Product extends Entity {
-	
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+@Entity
+// Class Model Product
+public class Product extends BaseEntity {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	// Fields:
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	private List<Shelf> listShelfs;
+
 	private int discountPrice;
 	private int iva;
 	private double pvp;
 
 	// Constructor:
-	
-	public Product() {}
-	
+
+	public Product() {
+	}
+
 	public Product(int discountPrice, int iva, double pvp) {
 		this.listShelfs = new ArrayList<Shelf>();
 		this.discountPrice = discountPrice;
 		this.iva = iva;
 		this.pvp = pvp;
 	}
-	
+
 	public Product(List<Shelf> listShelfs, int discountPrice, int iva, double pvp) {
 		this.listShelfs = listShelfs;
 		this.discountPrice = discountPrice;
@@ -46,7 +54,8 @@ public class Product extends Entity {
 	public void setListShelfs(List<Shelf> listShelfs) {
 		this.listShelfs = listShelfs;
 	}
-	//-------------------------------------------------------
+
+	// -------------------------------------------------------
 	public int getDiscountPrice() {
 		return discountPrice;
 	}
@@ -54,7 +63,8 @@ public class Product extends Entity {
 	public void setDiscountPrice(int discountPrice) {
 		this.discountPrice = discountPrice;
 	}
-	//-------------------------------------------------------
+
+	// -------------------------------------------------------
 	public int getIva() {
 		return iva;
 	}
@@ -62,7 +72,8 @@ public class Product extends Entity {
 	public void setIva(int iva) {
 		this.iva = iva;
 	}
-	//-------------------------------------------------------
+
+	// -------------------------------------------------------
 	public double getPvp() {
 		return pvp;
 	}
@@ -70,5 +81,5 @@ public class Product extends Entity {
 	public void setPvp(double pvp) {
 		this.pvp = pvp;
 	}
-	//-------------------------------------------------------
+	// -------------------------------------------------------
 }

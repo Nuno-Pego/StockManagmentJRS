@@ -1,9 +1,9 @@
 package io.altar.StockManagmentAPI.Business;
 
-import io.altar.StockManagmentAPI.Models.Entity;
+import io.altar.StockManagmentAPI.Models.BaseEntity;
 import io.altar.StockManagmentAPI.Models.Product;
 
-public class ShelfDto extends Entity {
+public class ShelfDto extends BaseEntity {
 
 	/**
 	 * 
@@ -23,7 +23,8 @@ public class ShelfDto extends Entity {
 		this.price = price;
 	}
 	
-	public ShelfDto(long id, Product product,int capacity, double price) {		
+	public ShelfDto(long id, Product product,int capacity, double price) {
+		this.setId(id);
 		this.capacity = capacity;
 		this.product = product;
 		this.price = price;

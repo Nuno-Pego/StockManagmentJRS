@@ -1,8 +1,8 @@
 package io.altar.StockManagmentAPI.Business;
 
-import io.altar.StockManagmentAPI.Models.Entity;
+import io.altar.StockManagmentAPI.Models.BaseEntity;
 
-public class ProductDto extends Entity {
+public class ProductDto extends BaseEntity {
 
 	/**
 	 * 

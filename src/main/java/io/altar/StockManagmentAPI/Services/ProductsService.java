@@ -35,28 +35,6 @@ public class ProductsService {
 		return ProductBusiness.updateProduct(product);
 	}
 
-	@GET
-	@Path("/getAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Collection<ProductDto> getAllProducts() {
-		return ProductBusiness.getAllProducts();
-	}
-
-	@GET
-	@Path("/getById/{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public ProductDto getProductById(@PathParam("id") long id) {
-		return ProductBusiness.getProductById(id);
-	}
-
-	@DELETE
-	@Path("/deleteAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response removeAllProducts() {
-		ProductBusiness.removeAllProducts();
-		return Response.ok().build();
-	}
-
 	@DELETE
 	@Path("/deleteById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -64,5 +42,27 @@ public class ProductsService {
 		ProductBusiness.removeProduct(id);
 		return Response.ok().build();
 	}
+
+	// @GET
+	// @Path("/getAll")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public Collection<ProductDto> getAllProducts() {
+	// return ProductBusiness.getAllProducts();
+	// }
+	//
+	// @GET
+	// @Path("/getById/{id}")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public ProductDto getProductById(@PathParam("id") long id) {
+	// return ProductBusiness.getProductById(id);
+	// }
+	//
+	// @DELETE
+	// @Path("/deleteAll")
+	// @Produces(MediaType.APPLICATION_JSON)
+	// public Response removeAllProducts() {
+	// ProductBusiness.removeAllProducts();
+	// return Response.ok().build();
+	// }
 
 }
