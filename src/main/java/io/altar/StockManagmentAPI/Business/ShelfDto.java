@@ -9,9 +9,9 @@ public class ShelfDto extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private Product product;
-	private int capacity;	
+	private int capacity;
 	private double price;
 
 	public ShelfDto() {
@@ -22,8 +22,8 @@ public class ShelfDto extends BaseEntity {
 		this.capacity = capacity;
 		this.price = price;
 	}
-	
-	public ShelfDto(long id, Product product,int capacity, double price) {
+
+	public ShelfDto(long id, Product product, int capacity, double price) {
 		this.setId(id);
 		this.capacity = capacity;
 		this.product = product;

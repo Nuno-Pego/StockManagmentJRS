@@ -8,16 +8,20 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-@Entity
 // Class Model Product
+@Entity
+@NamedQuery(name=Product.GET_ALL_PRODUCTS_QUERY_NAME, query="SELECT p FROM Product p")
 public class Product extends BaseEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static final String GET_ALL_PRODUCTS_QUERY_NAME = "getAllProducts";
 
 	// Fields:
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")

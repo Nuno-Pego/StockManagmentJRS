@@ -9,16 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseEntity implements Serializable{
-	
+public class BaseEntity implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+	// Attributes:
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	// Attributes:
 	private long id;
 
 	// Get and Set:

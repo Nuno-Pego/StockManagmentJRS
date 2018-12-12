@@ -1,7 +1,8 @@
 package io.altar.StockManagmentAPI.Services;
 
-import java.util.Collection;
+import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,12 +20,15 @@ import io.altar.StockManagmentAPI.Models.Product;
 @Path("/product")
 public class ProductsService {
 
+	@Inject
+	ProductBusiness productBusiness;
+
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public ProductDto addProduct(Product product) {
-		return ProductBusiness.saveProduct(product);
+		return productBusiness.saveProduct(product);
 	}
 
 	@POST
@@ -32,23 +36,24 @@ public class ProductsService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public ProductDto updateProduct(Product product) {
-		return ProductBusiness.updateProduct(product);
+		return productBusiness.updateProduct(product);
 	}
 
 	@DELETE
 	@Path("/deleteById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response removeProductById(@PathParam("id") long id) {
-		ProductBusiness.removeProduct(id);
+		productBusiness.removeProduct(id);
 		return Response.ok().build();
 	}
 
-	// @GET
-	// @Path("/getAll")
-	// @Produces(MediaType.APPLICATION_JSON)
-	// public Collection<ProductDto> getAllProducts() {
-	// return ProductBusiness.getAllProducts();
-	// }
+	 @GET
+	 @Path("/getAll")
+	 @Produces(MediaType.APPLICATION_JSON)
+	 public List<Product> getAllProducts() {
+	 return productBusiness.getAllProducts();
+	 }
+	 
 	//
 	// @GET
 	// @Path("/getById/{id}")

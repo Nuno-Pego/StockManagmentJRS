@@ -8,7 +8,7 @@ public class ProductDto extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private int discountPrice;
 	private int iva;
 	private double pvp;

@@ -3,15 +3,19 @@ package io.altar.StockManagmentAPI.Models;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
-@Entity
 // Class Model Shelf
+@Entity
+@NamedQuery(name = Shelf.GET_ALL_SHELFS_QUERY_NAME, query = "SELECT s FROM Product s")
 public class Shelf extends BaseEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	public static final String GET_ALL_SHELFS_QUERY_NAME = "getAllShelfs";
 
 	// Fields:
 	@ManyToOne(cascade = CascadeType.ALL)
