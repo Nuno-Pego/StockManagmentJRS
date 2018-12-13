@@ -23,7 +23,6 @@ public class Product extends BaseEntity {
 	
 	public static final String GET_ALL_PRODUCTS_QUERY_NAME = "getAllProducts";
 
-	// Fields:
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	private List<Shelf> listShelfs;
 

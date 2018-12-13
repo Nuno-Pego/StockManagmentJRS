@@ -7,7 +7,7 @@ import javax.persistence.NamedQuery;
 
 // Class Model Shelf
 @Entity
-@NamedQuery(name = Shelf.GET_ALL_SHELFS_QUERY_NAME, query = "SELECT s FROM Product s")
+@NamedQuery(name = Shelf.GET_ALL_SHELFS_QUERY_NAME, query = "SELECT s FROM Shelf s")
 public class Shelf extends BaseEntity {
 
 	/**
@@ -17,7 +17,6 @@ public class Shelf extends BaseEntity {
 
 	public static final String GET_ALL_SHELFS_QUERY_NAME = "getAllShelfs";
 
-	// Fields:
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Product product;
 

@@ -50,7 +50,7 @@ public class ProductsService {
 	 @GET
 	 @Path("/getAll")
 	 @Produces(MediaType.APPLICATION_JSON)
-	 public List<Product> getAllProducts() {
+	 public List<ProductDto> getAllProducts() {
 	 return productBusiness.getAllProducts();
 	 }
 	 

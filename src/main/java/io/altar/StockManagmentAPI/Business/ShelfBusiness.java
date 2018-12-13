@@ -17,7 +17,7 @@ public class ShelfBusiness {
 	// Save Shelf
 	@Transactional
 	public ShelfDto saveShelf(Shelf saveShelf) {
-		shelfRepository.save(saveShelf);
+		saveShelf = shelfRepository.save(saveShelf);
 		ShelfDto createShelf = new ShelfDto(saveShelf.getId(), saveShelf.getProduct(), saveShelf.getCapacity(),
 				saveShelf.getPrice());
 		return createShelf;
@@ -26,7 +26,7 @@ public class ShelfBusiness {
 	// Update:
 	@Transactional
 	public ShelfDto replaceShelf(Shelf shelf) {
-		shelfRepository.update(shelf);
+		shelf = shelfRepository.update(shelf);
 		ShelfDto createShelf = new ShelfDto(shelf.getId(), shelf.getProduct(), shelf.getCapacity(), shelf.getPrice());
 		return createShelf;
 	}
