@@ -3,6 +3,7 @@
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Business/ShelfBusiness.java
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Services/ShelfsService.java
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Business/ProductBusiness.java
+/Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Filters/CORSFilter.java
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Models/Shelf.java
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/StockManagmentAPI/Business/ProductDto.java
 /Users/alunotarde/Desktop/Repositorios/StockManagmentJRS/src/main/java/io/altar/App.java

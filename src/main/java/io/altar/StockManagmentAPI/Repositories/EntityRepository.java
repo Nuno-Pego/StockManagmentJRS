@@ -18,6 +18,8 @@ public abstract class EntityRepository<T extends BaseEntity> {
 
 	protected abstract String getAllEntityQueryName();
 
+	protected abstract String deleteAllEntityQueryName();
+
 	// Fields:
 
 	public T save(T entity) {
@@ -28,12 +30,20 @@ public abstract class EntityRepository<T extends BaseEntity> {
 		return entityManager.merge(entity);
 	}
 
-	public void removeByID(long id) {
-		entityManager.remove(entityManager.find(getEntityClass(), id));
-	}
-
 	public List<T> getAll() {
 		return entityManager.createNamedQuery(getAllEntityQueryName(), getEntityClass()).getResultList();
+	}
+
+	public T getById(long id) {
+		return entityManager.find(getEntityClass(), id);
+	}
+
+	public int removeAll() {
+		return entityManager.createNamedQuery(deleteAllEntityQueryName()).executeUpdate();
+	}
+
+	public void removeByID(long id) {
+		entityManager.remove(entityManager.find(getEntityClass(), id));
 	}
 
 }

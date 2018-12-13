@@ -24,4 +24,8 @@ public class ShelfRepository extends EntityRepository<Shelf> {
 	protected String getAllEntityQueryName() {
 		return Shelf.GET_ALL_SHELFS_QUERY_NAME;
 	}
+
+	protected String deleteAllEntityQueryName() {
+		return Shelf.DELETE_ALL_SHELFS_QUERY_NAME;
+	}
 }

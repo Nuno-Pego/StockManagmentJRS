@@ -24,4 +24,8 @@ public class ProductRepository extends EntityRepository<Product> {
 	protected String getAllEntityQueryName() {
 		return Product.GET_ALL_PRODUCTS_QUERY_NAME;
 	}
+
+	protected String deleteAllEntityQueryName() {
+		return Product.DELETE_ALL_PRODUCTS_QUERY_NAME;
+	}
 }

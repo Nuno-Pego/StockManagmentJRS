@@ -31,14 +31,25 @@ public class ShelfBusiness {
 		return createShelf;
 	}
 
+	// Get All Shelfs
+	public List<Shelf> getAllShelfs() {
+		return shelfRepository.getAll();
+	}
+
+	// Get Shelf by id
+	public Shelf getShelfById(long id) {
+		return shelfRepository.getById(id);
+	}
+
+	// Remove all Shelfs
+	@Transactional
+	public int removeAllShelfs() {
+		return shelfRepository.removeAll();
+	}
+
 	// Remove Shelf
 	@Transactional
 	public void removeShelf(long id) {
 		shelfRepository.removeByID(id);
-	}
-
-	// Get All Shelfs
-	public List<Shelf> getAllShelfs() {
-		return shelfRepository.getAll();
 	}
 }

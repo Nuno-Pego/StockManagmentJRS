@@ -3,11 +3,13 @@ package io.altar.StockManagmentAPI.Models;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 // Class Model Shelf
 @Entity
-@NamedQuery(name = Shelf.GET_ALL_SHELFS_QUERY_NAME, query = "SELECT s FROM Shelf s")
+@NamedQueries({ @NamedQuery(name = Shelf.GET_ALL_SHELFS_QUERY_NAME, query = "SELECT s FROM Shelf s"),
+		@NamedQuery(name = Shelf.DELETE_ALL_SHELFS_QUERY_NAME, query = "DELETE FROM Shelf") })
 public class Shelf extends BaseEntity {
 
 	/**
@@ -16,6 +18,7 @@ public class Shelf extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	public static final String GET_ALL_SHELFS_QUERY_NAME = "getAllShelfs";
+	public static final String DELETE_ALL_SHELFS_QUERY_NAME = "deleteAllShelfs";
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Product product;

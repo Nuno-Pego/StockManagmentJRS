@@ -40,6 +40,27 @@ public class ShelfsService {
 		return shelf;
 	}
 
+	@GET
+	@Path("/getAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Shelf> getAllShelfs() {
+		return shelfBusiness.getAllShelfs();
+	}
+
+	@GET
+	@Path("/getById/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Shelf getShelfById(@PathParam("id") long id) {
+		return shelfBusiness.getShelfById(id);
+	}
+
+	@DELETE
+	@Path("/deleteAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public int removeAllShelfs() {		
+		return shelfBusiness.removeAllShelfs();
+	}
+
 	@DELETE
 	@Path("/deleteById/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -47,28 +68,5 @@ public class ShelfsService {
 		shelfBusiness.removeShelf(id);
 		return Response.ok().build();
 	}
-
-	 @GET
-	 @Path("/getAll")
-	 @Produces(MediaType.APPLICATION_JSON)
-	 public List<Shelf> getAllShelfs(){
-	 return shelfBusiness.getAllShelfs();
-	 }
-	 
-	//
-	// @GET
-	// @Path("/getById/{id}")
-	// @Produces(MediaType.APPLICATION_JSON)
-	// public ShelfDto getShelfById(@PathParam("id") long id){
-	// return ShelfBusiness.getShelfById(id);
-	// }
-	//
-	// @DELETE
-	// @Path("/deleteAll")
-	// @Produces(MediaType.APPLICATION_JSON)
-	// public Response removeAllShelfs(){
-	// ShelfBusiness.removeAllShelfs();
-	// return Response.ok().build();
-	// }
 
 }

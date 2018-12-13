@@ -8,20 +8,23 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 // Class Model Product
 @Entity
-@NamedQuery(name=Product.GET_ALL_PRODUCTS_QUERY_NAME, query="SELECT p FROM Product p")
+@NamedQueries({ @NamedQuery(name = Product.GET_ALL_PRODUCTS_QUERY_NAME, query = "SELECT p FROM Product p"),
+		@NamedQuery(name = Product.DELETE_ALL_PRODUCTS_QUERY_NAME, query = "DELETE FROM Product") })
 public class Product extends BaseEntity {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String GET_ALL_PRODUCTS_QUERY_NAME = "getAllProducts";
+	public static final String DELETE_ALL_PRODUCTS_QUERY_NAME = "deleteAllProducts";
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	private List<Shelf> listShelfs;
